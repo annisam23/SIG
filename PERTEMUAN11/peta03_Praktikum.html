@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Depok gatuh</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+     <style>
+        #map {height:400px;}
+     </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+
+        var map = L.map('map').setView([-6.402905, 106.778419], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var aio = {
+            "type": "FeatureCollection",
+            "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "kampus": "Kampus A STTNF",
+                    "kota": "depok"
+                },
+                "geometry": {
+                    "coordinates": [
+                    106.84404594798468,
+                    -6.3621989967123795
+                    ],
+                    "type": "Point"
+                }
+                },
+                {
+                "type": "Feature",
+                "properties": {
+                    "kampus":"STT Terpadu nurul fikri",
+                    "kota":"Jakarta Selatan"
+                },
+                "geometry": {
+                    "coordinates": [
+                    106.83265410185373,
+                    -6.352923522662024
+                    ],
+                    "type": "Point"
+                }
+                },
+                {
+                "type": "Feature",
+                "properties": {
+                    "kampus": "UI depok",
+                    "kota": "depok"
+                },
+                "geometry": {
+                    "coordinates": [
+                    106.82949918650866,
+                    -6.36335047172075
+                    ],
+                    "type": "Point"
+                }
+                },
+                {
+                "type": "Feature",
+                "properties": {
+                    "kampus": "Universitas pancasila"
+                },
+                "geometry": {
+                    "coordinates": [
+                    106.83279254232775,
+                    -6.33920567352817
+                    ],
+                    "type": "Point"
+                }
+                },
+                {
+                "type": "Feature",
+                "properties": {
+                    "kampus": "Universitas Gunadarma KampusE",
+                    "kota": "depok"
+                },
+                "geometry": {
+                    "coordinates": [
+                    106.84148455952231,
+                    -6.353986634759437
+                    ],
+                    "type": "Point"
+                }
+                },
+                {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    "coordinates": [
+                    106.82728102218118,
+                    -6.347049471930205
+                    ],
+                    "type": "Point"
+                }
+                },
+            ]
+            }
+        ;
+
+        var geojson = L.geoJSON(loi, {
+        onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.kampus +" "+ feature.properties.kota);
+        }
+        }).addTo(map);
+    </script>
+</body>
+</html>
